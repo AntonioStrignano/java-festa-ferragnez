@@ -10,35 +10,44 @@ Lista invitati: Dua Lipa, Paris Hilton, Manuel Agnelli, J-Ax, Francesco Totti, I
 
 package com.ferragnez.party;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class CheckGuest {
 	public static void main(String[] args) {
 		
-		//creare e inizializzare array lista invitati
-		String[] invitati = { "Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti",
-				"Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"
-		};
+		//creare e inizializzare array lista invitat
+		String[] invitati = { "Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti", "Ilary Blasi",
+				"Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
 				
 		//chiedere all'utente come si chiama
 
-		Scanner input = new Scanner(System.in);
-		System.out.println("Come ti chiami? ");
-		String nome = input.nextLine();
-		
-		//verificare che l'utente sia in lista
-		System.out.println("Stiamo controllando se sei in lista...");
-		
-		for (int i = 0; i < invitati.length; i++) {
+		try (Scanner input = new Scanner(System.in)) {
+			System.out.println("Come ti chiami? ");
+			String nome = input.nextLine();
+			System.out.println("Ti chiami " + nome);
 			
-			System.out.println(invitati[i]);
-			/*
-			 * if (nome == i) { }System.out.println("OK, puoi entrare.");
-			 */
+			//verificare che l'utente sia in lista
+			System.out.println("Stiamo controllando se sei in lista...");
+			
+			boolean trovato = false;
+			
+			for(int i = 0; i < invitati.length; i++) {
+				String currentName = invitati[i];
+				
+				 if(currentName.equals(nome)) {
+					 trovato = true;
+				 
+				 }
+			}
+			
+			if (trovato == true) {
+				 System.out.println("Ok sei in lista, entra pure e divertiti.");
+			}
+			
+			else {
+				 System.out.println("Tornatene da dove sei venuto!");
+			}
 		}
-		
-		
 		
 	}
 
