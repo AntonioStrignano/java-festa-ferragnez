@@ -32,15 +32,14 @@ public class CheckGuest {
 			boolean trovato = false;
 			
 			for(int i = 0; i < invitati.length; i++) {
-				String currentName = invitati[i];
 				
-				 if(currentName.equals(nome)) {
+				 if(invitati[i].equals(nome)) {
 					 trovato = true;
 				 
 				 }
 			}
 			
-			if (trovato == true) {
+			if (trovato) {
 				 System.out.println("Ok sei in lista, entra pure e divertiti.");
 			}
 			
